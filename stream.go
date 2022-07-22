@@ -21,3 +21,11 @@ package fungi
 type Stream[T any] interface {
 	Next() (T, error)
 }
+
+// Here are some function types that transform streams.
+type (
+	StreamIdentity[T any]       func(Stream[T]) Stream[T]
+	StreamTransformer[I, O any] func(Stream[I]) Stream[O]
+	StreamReducer[I, O any]     func(Stream[I]) (O, error)
+	StreamHandler[T any]        func(Stream[T]) error
+)

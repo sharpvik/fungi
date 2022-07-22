@@ -1,7 +1,5 @@
 package fungi
 
-type StreamIdentity[T any] func(Stream[T]) Stream[T]
-
 // Filter stream items using a custom checker function.
 func Filter[T any](ok func(T) bool) StreamIdentity[T] {
 	return func(items Stream[T]) Stream[T] {

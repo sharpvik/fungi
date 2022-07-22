@@ -2,8 +2,6 @@ package fungi
 
 import "io"
 
-type StreamHandler[T any] func(Stream[T]) error
-
 // ForEach uses the custom handler function given to it to process every item
 // from a stream.
 func ForEach[T any](handle func(T)) StreamHandler[T] {

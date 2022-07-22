@@ -1,7 +1,5 @@
 package fungi
 
-type StreamTransformer[I, O any] func(Stream[I]) Stream[O]
-
 // Map transforms every item from a stream using a custom mapper function.
 func Map[I, O any](transform func(I) O) StreamTransformer[I, O] {
 	return func(items Stream[I]) Stream[O] {

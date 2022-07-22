@@ -5,7 +5,7 @@ func Drop[T any](n int) StreamIdentity[T] {
 	return func(items Stream[T]) Stream[T] {
 		for i := 0; i < n; i++ {
 			if _, err := items.Next(); err != nil {
-				return &erroneous[T]{err}
+				return &ErrStream[T]{err}
 			}
 		}
 		return items

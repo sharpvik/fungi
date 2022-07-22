@@ -2,8 +2,6 @@ package fungi
 
 import "io"
 
-type StreamReducer[I, O any] func(Stream[I]) (O, error)
-
 // Reduce a stream by combining items in a special way.
 func Reduce[I, O any](combine func(O, I) O, def O) StreamReducer[I, O] {
 	return func(items Stream[I]) (O, error) {
