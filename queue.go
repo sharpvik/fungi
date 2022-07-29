@@ -2,31 +2,31 @@ package fungi
 
 import "io"
 
-// Q is a clever data structure that implements Stream and allows item enqueue
-// operation.
-type Q[T any] struct {
+// queue is a clever data structure that allows both item enqueue and dequeue
+// operations. It implements the Channel interface.
+type queue[T any] struct {
 	items []T
 }
 
-// Queue is a default constructor for Q.
-func Queue[T any]() *Q[T] {
+// Queue is a default constructor for queue.
+func Queue[T any]() *queue[T] {
 	return QueueOf[T]()
 }
 
 // QueueOf allows you to initialise a queue with some elements.
-func QueueOf[T any](items ...T) *Q[T] {
-	return &Q[T]{
+func QueueOf[T any](items ...T) *queue[T] {
+	return &queue[T]{
 		items: items,
 	}
 }
 
 // Add some items to the queue.
-func (q *Q[T]) Add(items ...T) {
+func (q *queue[T]) Add(items ...T) {
 	q.items = append(q.items, items...)
 }
 
 // Next item from the queue or error if it's empty.
-func (q *Q[T]) Next() (item T, err error) {
+func (q *queue[T]) Next() (item T, err error) {
 	if len(q.items) == 0 {
 		err = io.EOF
 		return
