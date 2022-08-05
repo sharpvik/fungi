@@ -18,20 +18,9 @@ package fungi
 //     add         := fungi.Reduce(func(i, j int) int { return i + j }, 0)
 //     result, err := add(double(even(stream)))
 //
-type (
-	Stream[T any] interface {
-		Next() (T, error)
-	}
-
-	Collector[T any] interface {
-		Add(...T)
-	}
-
-	Channel[T any] interface {
-		Collector[T]
-		Stream[T]
-	}
-)
+type Stream[T any] interface {
+	Next() (T, error)
+}
 
 // Here are some function types that transform streams.
 type (
