@@ -8,17 +8,14 @@ import (
 
 func TestAnyTrue(t *testing.T) {
 	source := SliceStream([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
-	hasEvenNumbers := Any(even)
-	result, err := hasEvenNumbers(source)
+	result, err := Any(even)(source)
 	assert.NoError(t, err)
 	assert.True(t, result)
 }
 
 func TestAnyFalse(t *testing.T) {
-	source := SliceStream([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
-	justOddNumbers := Filter(odd)
-	hasEvenNumbers := Any(even)
-	result, err := hasEvenNumbers(justOddNumbers(source))
+	source := SliceStream([]int{1, 3, 5, 7, 9})
+	result, err := Any(even)(source)
 	assert.NoError(t, err)
 	assert.False(t, result)
 }

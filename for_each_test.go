@@ -18,8 +18,7 @@ func TestForEach(t *testing.T) {
 
 func TestForEachWithErrorDuringHandling(t *testing.T) {
 	source := SliceStream([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
-	loop := ForEach(errorMaker)
-	err := loop(source)
+	err := ForEach(errorMaker)(source)
 	assert.Error(t, err)
 }
 

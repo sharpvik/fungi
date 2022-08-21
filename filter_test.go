@@ -8,8 +8,7 @@ import (
 
 func TestFilter(t *testing.T) {
 	source := SliceStream([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
-	filter := Filter(even)
-	stream := filter(source)
+	stream := Filter(even)(source)
 	result, err := CollectSlice(stream)
 	assert.NoError(t, err)
 	assert.Equal(t, []int{2, 4, 6, 8, 10}, result)
