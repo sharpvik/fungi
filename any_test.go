@@ -14,7 +14,7 @@ func TestAnyTrue(t *testing.T) {
 	assert.True(t, result)
 }
 
-func TestAndFalse(t *testing.T) {
+func TestAnyFalse(t *testing.T) {
 	source := SliceStream([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
 	justOddNumbers := Filter(odd)
 	hasEvenNumbers := Any(even)
