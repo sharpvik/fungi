@@ -1,6 +1,6 @@
 # Fungi
 
-[![Go Reference](https://pkg.go.dev/badge/pkg.go.dev/github.com/getkalido/fungi.svg)](https://pkg.go.dev/github.com/getkalido/fungi@v1.0.0-beta-3)
+[![Go Reference](https://pkg.go.dev/badge/pkg.go.dev/github.com/getkalido/fungi.svg)](https://pkg.go.dev/github.com/getkalido/fungi@v1.0.0-beta-4)
 
 **Fungi** provides a great suite of functional stream processing primitives that
 can be used for a wide range of purposes. Use this library to describe your
@@ -11,7 +11,7 @@ intent declaratively and produce elegant code that is easy to read and refactor.
 Please import our latest stable beta version:
 
 ```bash
-go get github.com/getkalido/fungi@v1.0.0-beta-3
+go get github.com/getkalido/fungi@v1.0.0-beta-4
 ```
 
 ## Spread The Spores
@@ -50,9 +50,9 @@ go test -cover
 ```
 
 ```
-[8th of August 2022 checked out at v1.0.0-beta]
+[23th of August 2022 checked out at v1.0.0-beta-4]
 PASS
-coverage: 97.4% of statements
+coverage: 97.9% of statements
 ok  	github.com/getkalido/fungi	0.286s
 ```
 
