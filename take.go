@@ -2,7 +2,7 @@ package fungi
 
 import "io"
 
-// Take just fisrt N items of the Stream. The resulting stream is going to start
+// Take just first N items of the Stream. The resulting stream is going to start
 // returning io.EOF once N items have been depleted through calls to Next.
 func Take[T any](n int) StreamIdentity[T] {
 	return func(items Stream[T]) Stream[T] {
