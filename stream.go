@@ -24,8 +24,8 @@ type Stream[T any] interface {
 
 // Here are some function types that transform streams.
 type (
-	StreamIdentity[T any]       func(Stream[T]) Stream[T]
 	StreamTransformer[I, O any] func(Stream[I]) Stream[O]
+	StreamIdentity[T any]       StreamTransformer[T, T]
 	StreamReducer[I, O any]     func(Stream[I]) (O, error)
 	StreamHandler[T any]        func(Stream[T]) error
 )
