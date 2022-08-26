@@ -1,6 +1,7 @@
 package fungi
 
 import (
+	"io"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -16,5 +17,5 @@ func TestFind(t *testing.T) {
 func TestFindNoMatch(t *testing.T) {
 	source := SliceStream([]int{1, 3, 5, 7, 9})
 	_, err := Find(even)(source)
-	assert.Error(t, err)
+	assert.Equal(t, io.EOF, err)
 }
