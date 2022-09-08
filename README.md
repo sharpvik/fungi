@@ -1,6 +1,6 @@
 # Fungi
 
-[![Go Reference](https://pkg.go.dev/badge/pkg.go.dev/github.com/sharpvik/fungi.svg)](https://pkg.go.dev/github.com/sharpvik/fungi@latest)
+[![Go Reference](https://pkg.go.dev/badge/pkg.go.dev/github.com/sharpvik/fungi.svg)](https://pkg.go.dev/github.com/sharpvik/fungi@v1.0.0)
 
 **Fungi** provides a great suite of functional stream processing primitives that
 can be used for a wide range of purposes. Use this library to describe your
@@ -11,7 +11,7 @@ intent declaratively and produce elegant code that is easy to read and refactor.
 Please import our latest stable beta version:
 
 ```bash
-go get github.com/sharpvik/fungi@latest
+go get github.com/sharpvik/fungi@v1.0.0
 ```
 
 ## Spread The Spores
