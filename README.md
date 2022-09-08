@@ -1,6 +1,6 @@
 # Fungi
 
-[![Go Reference](https://pkg.go.dev/badge/pkg.go.dev/github.com/getkalido/fungi.svg)](https://pkg.go.dev/github.com/getkalido/fungi@v1.0.0-beta-4)
+[![Go Reference](https://pkg.go.dev/badge/pkg.go.dev/github.com/sharpvik/fungi.svg)](https://pkg.go.dev/github.com/sharpvik/fungi@latest)
 
 **Fungi** provides a great suite of functional stream processing primitives that
 can be used for a wide range of purposes. Use this library to describe your
@@ -11,7 +11,7 @@ intent declaratively and produce elegant code that is easy to read and refactor.
 Please import our latest stable beta version:
 
 ```bash
-go get github.com/getkalido/fungi@v1.0.0-beta-4
+go get github.com/sharpvik/fungi@latest
 ```
 
 ## Spread The Spores
@@ -27,6 +27,7 @@ good thing. Here are some things it can help you with:
 6. [`Loop`][loop] through every item (see also [`ForEach`][for_each]).
 7. Collect items into a Go builtin `slice` or `map`
    ([`CollectSlice`][slice] & [`CollectMap`][hmap]).
+8. [`Find`][find] an item that fits a description.
 
 [filter]: ./filter.go
 [map]: ./map.go
@@ -37,6 +38,7 @@ good thing. Here are some things it can help you with:
 [for_each]: ./for_each.go
 [slice]: ./slice.go
 [hmap]: ./hmap.go
+[find]: ./find.go
 
 ## Don't Sweat
 
@@ -53,11 +55,11 @@ go test -cover
 [23th of August 2022 checked out at v1.0.0-beta-4]
 PASS
 coverage: 97.9% of statements
-ok  	github.com/getkalido/fungi	0.286s
+ok  	github.com/sharpvik/fungi	0.286s
 ```
 
 Moreover, our tests can and _should_ be used as examples: they are written with
-clarity and readability in mind. 
+clarity and readability in mind.
 
 > Test files have the `_test.go` suffix. Browse through, don't be shy!
 

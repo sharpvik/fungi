@@ -1,4 +1,4 @@
-module github.com/getkalido/fungi
+module github.com/sharpvik/fungi
 
 go 1.18
 
