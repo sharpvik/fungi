@@ -1,10 +1,14 @@
 package fungi
 
-type ErrStream[T any] struct {
+func ErrorStream[T any](err error) Stream[T] {
+	return &errorStream[T]{err}
+}
+
+type errorStream[T any] struct {
 	err error
 }
 
-func (e *ErrStream[T]) Next() (_ T, err error) {
+func (e *errorStream[T]) Next() (_ T, err error) {
 	err = e.err
 	return
 }

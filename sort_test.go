@@ -6,9 +6,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestTake(t *testing.T) {
-	source := SliceStream([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
-	stream := Take[int](5)(source)
+func TestSort(t *testing.T) {
+	source := SliceStream([]int{5, 2, 3, 1, 4})
+	sort := Sort(func(a, b int) bool { return a < b })
+	stream := sort(source)
 	result, err := CollectSlice(stream)
 	assert.NoError(t, err)
 	assert.Equal(t, []int{1, 2, 3, 4, 5}, result)

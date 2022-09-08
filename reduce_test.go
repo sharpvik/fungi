@@ -8,8 +8,7 @@ import (
 
 func TestReduce(t *testing.T) {
 	source := SliceStream([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
-	reduce := Reduce(add, 0)
-	result, err := reduce(source)
+	result, err := Reduce(add, 0)(source)
 	assert.NoError(t, err)
 	assert.Equal(t, 55, result)
 }
