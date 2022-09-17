@@ -7,11 +7,10 @@ type pipe[R any] struct {
 // Pipe is a style-enhancing utility that allows one to apply functions in a
 // left-to-right fashion like so:
 //
-//     err := Then(Then(
-//         Pipe(source, filter), mapper), looper).
-//         //   (arg) >>> (1) >>>> (2) >>>> (3)
-//         Result()
-//
+//	err := Then(Then(
+//	    Pipe(source, filter), mapper), looper).
+//	    //   (arg) >>> (1) >>>> (2) >>>> (3)
+//	    Result()
 func Pipe[I, O any](x I, f func(I) O) *pipe[O] {
 	return &pipe[O]{
 		Result: func() O { return f(x) },

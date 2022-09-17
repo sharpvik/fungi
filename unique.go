@@ -13,18 +13,17 @@ func Unique[T comparable](items Stream[T]) Stream[T] {
 //
 // For example, let's say there's a struct called User:
 //
-//     type User struct {
-//         ID int // unique database identifier
-//         Name string
-//     }
+//	type User struct {
+//	    ID int // unique database identifier
+//	    Name string
+//	}
 //
 // You can create a stream of unique users like so:
 //
-//     var usersStream fungi.Stream[*User] = service.GetUsers()
-//     //  usersStream might contain duplicates
-//     uniqueUsers := fungi.UniqueBy(func(u *User) int { return u.ID })
-//     uniqueUsersStream := uniqueUsers(usersStream)
-//
+//	var usersStream fungi.Stream[*User] = service.GetUsers()
+//	//  usersStream might contain duplicates
+//	uniqueUsers := fungi.UniqueBy(func(u *User) int { return u.ID })
+//	uniqueUsersStream := uniqueUsers(usersStream)
 func UniqueBy[T any, K comparable](id func(T) K) StreamIdentity[T] {
 	memory := make(map[K]struct{})
 	unique := FilterMap(func(item T) (T, bool) {
