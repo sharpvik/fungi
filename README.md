@@ -6,12 +6,10 @@
 can be used for a wide range of purposes. Use this library to describe your
 intent declaratively and produce elegant code that is easy to read and refactor.
 
-## Beta Testing
-
-Please import our latest stable beta version:
+## Import
 
 ```bash
-go get github.com/sharpvik/fungi@v1.0.0
+go get github.com/sharpvik/fungi@latest
 ```
 
 ## Spread The Spores
@@ -20,17 +18,19 @@ Very soon `fungi` will start popping up all over your codebase! And that is a
 good thing. Here are some things it can help you with:
 
 1. [`Filter`][filter] out irrelevant items using a custom validation function.
-2. Apply custom transformations to stream items ([`Map`][map]).
+2. Apply custom transformations to stream items
+   ([`Map`][map], [`TryMap`][try_map]).
 3. Select a [`Range`][range] of items you're interested in.
 4. [`Sort`][sort] items with a generic comparator.
 5. [`Page`][page] items efficiently based on page number and size.
 6. [`Loop`][loop] through every item (see also [`ForEach`][for_each]).
 7. Collect items into a Go builtin `slice` or `map`
-   ([`CollectSlice`][slice] & [`CollectMap`][hmap]).
+   ([`CollectSlice`][slice], [`CollectMap`][hmap]).
 8. [`Find`][find] an item that fits a description.
 
 [filter]: ./filter.go
 [map]: ./map.go
+[try_map]: ./try_map.go
 [range]: ./range.go
 [sort]: ./sort.go
 [page]: ./page.go
@@ -52,10 +52,10 @@ go test -cover
 ```
 
 ```
-[23th of August 2022 checked out at v1.0.0-beta-4]
+[6th of December 2022 checked out at v1.1.0]
 PASS
-coverage: 97.9% of statements
-ok  	github.com/sharpvik/fungi	0.286s
+coverage: 98.1% of statements
+ok      github.com/sharpvik/fungi       0.193s
 ```
 
 Moreover, our tests can and _should_ be used as examples: they are written with
