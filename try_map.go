@@ -1,6 +1,7 @@
 package fungi
 
 // TryMap transforms every item from a stream using a custom mapper function.
+// Use it with transformations that might error out.
 func TryMap[I, O any](try func(I) (O, error)) StreamTransformer[I, O] {
 	return func(items Stream[I]) Stream[O] {
 		return &tryMapper[I, O]{
