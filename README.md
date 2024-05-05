@@ -46,7 +46,7 @@ Fungi is very well-tested with a consistent test coverage of **over 95%**.
 See for yourself:
 
 ```bash
-git clone git@github.com:getkalido/fungi.git
+git clone git@github.com:sharpvik/fungi.git
 cd fungi
 go test -cover
 ```
