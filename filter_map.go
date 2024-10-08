@@ -33,28 +33,13 @@ func FilterMap[I, O any](carry func(I) (O, bool)) StreamTransformer[I, O] {
 		_, ok = carry(item)
 		return
 	})
+
 	mapper := Map(func(item I) (mapped O) {
 		mapped, _ = carry(item)
 		return
 	})
+
 	return func(items Stream[I]) Stream[O] {
 		return mapper(filter(items))
-	}
-}
-
-type filterMap[I, O any] struct {
-	source Stream[I]
-	carry  func(I) (O, bool)
-}
-
-func (t *filterMap[I, O]) Next() (item O, err error) {
-	for {
-		var origin I
-		if origin, err = t.source.Next(); err != nil {
-			return
-		}
-		if item, ok := t.carry(origin); ok {
-			return item, nil
-		}
 	}
 }

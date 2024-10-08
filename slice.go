@@ -13,15 +13,21 @@ func SliceStream[T any](items []T) Stream[T] {
 // end of this operation, io.EOF is not reported as this function is expected to
 // read stream until the end anyways.
 func CollectSlice[T any](items Stream[T]) (collected []T, err error) {
+	if items == nil {
+		return
+	}
+
 	var item T
 	for err == nil {
 		if item, err = items.Next(); err == nil {
 			collected = append(collected, item)
 		}
 	}
+
 	if err == io.EOF {
 		err = nil
 	}
+
 	return
 }
 

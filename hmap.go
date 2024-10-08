@@ -11,6 +11,11 @@ func CollectMap[
 ](keyval func(T) (K, V)) StreamReducer[T, map[K]V] {
 	return func(items Stream[T]) (hmap map[K]V, err error) {
 		hmap = make(map[K]V)
+
+		if items == nil {
+			return
+		}
+
 		var item T
 		for err == nil {
 			if item, err = items.Next(); err == nil {
@@ -18,9 +23,11 @@ func CollectMap[
 				hmap[key] = value
 			}
 		}
+
 		if err == io.EOF {
 			err = nil
 		}
+
 		return
 	}
 }
