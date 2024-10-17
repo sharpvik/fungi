@@ -51,7 +51,7 @@ cd fungi
 go test -cover
 ```
 
-```
+```text
 [6th of December 2022 checked out at v1.1.0]
 PASS
 coverage: 98.1% of statements
@@ -75,22 +75,22 @@ all comply with the [`fungi.Stream`](stream.go) interface:
 ```go
 // Every one of your iterable receivers follows this generic interface.
 type Receiver[T any] interface {
-	Recv() (T, error)
+    Recv() (T, error)
 }
 
 // receiverStream implements fungi.Stream interface.
 type receiverStream[T any] struct {
-	Receiver[T]
+    Receiver[T]
 }
 
 // Next wraps Recv method of the origincal Receiver.
 func (rs receiverStream[T]) Next() (T, error) {
-	return rs.Recv()
+    return rs.Recv()
 }
 
 // ReceiverStream converts any Receiver into a fungi.Stream.
 func ReceiverStream[T any](r Receiver[T]) fungi.Stream[T] {
-	return receiverStream[T]{r}
+    return receiverStream[T]{r}
 }
 ```
 
