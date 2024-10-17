@@ -15,3 +15,12 @@ func TestConcat(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, source, result)
 }
+
+func TestConcatWithEmptyStream(t *testing.T) {
+	source := []int{1, 2, 3}
+	empty := EmptyStream[int]()
+	stream := Concat(empty, SliceStream(source))
+	result, err := CollectSlice(stream)
+	assert.NoError(t, err)
+	assert.Equal(t, source, result)
+}
