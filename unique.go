@@ -3,7 +3,7 @@ package fungi
 // Unique returns a stream of unique items. The incoming stream must be a stream
 // of comparable items.
 func Unique[T comparable](items Stream[T]) Stream[T] {
-	return UniqueBy(identity[T])(items)
+	return UniqueBy(Identity[T])(items)
 }
 
 // UniqueBy accepts a stream of any items and returns a stream of unique items.
@@ -35,4 +35,6 @@ func UniqueBy[T any, K comparable](id func(T) K) StreamIdentity[T] {
 	return StreamIdentity[T](unique)
 }
 
-func identity[T any](item T) T { return item }
+func Identity[T any](item T) T { return item }
+
+func Nop[T any](_ T) {}
